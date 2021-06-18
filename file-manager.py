@@ -4,16 +4,23 @@ import datetime
 
 downloads = "C:/Users/romat/Downloads"
 desktop = "C:/Users/romat/Desktop/"
+time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 os.chdir(downloads)
 
 log_file = open(desktop + "filelog.txt", "a")
 
+def write_log(file, action):
+    if action = "delete":
+        log_file.write(file + " is deleted at " + time + "\n")
+    if action = "move":
+        log_file.write(file + " is moved at " + time + "\n")
+    
 def delete_file(file):
-    log_file.write(file + " is deleted at " + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + "\n")
+    write_log(file = file, "delete")
     os.remove(file)
     
 def move_file(file, folder):
-    log_file.write(file + " is moved at " + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + "\n")
+    write_log(file = file, "move")
     shutil.move(file,  desktop + folder + "/" + file)
 
 for file in os.listdir(downloads):
