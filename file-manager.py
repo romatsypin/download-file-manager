@@ -10,17 +10,17 @@ os.chdir(downloads)
 log_file = open(desktop + "filelog.txt", "a")
 
 def write_log(file, action):
-    if action = "delete":
+    if action == "delete":
         log_file.write(file + " is deleted at " + time + "\n")
-    if action = "move":
+    if action == "move":
         log_file.write(file + " is moved at " + time + "\n")
     
 def delete_file(file):
-    write_log(file = file, "delete")
+    write_log(file = file, action = "delete")
     os.remove(file)
     
 def move_file(file, folder):
-    write_log(file = file, "move")
+    write_log(file = file, action = "move")
     shutil.move(file,  desktop + folder + "/" + file)
 
 for file in os.listdir(downloads):
