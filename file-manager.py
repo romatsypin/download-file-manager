@@ -29,7 +29,7 @@ for directory in dirlist:
         ext2 = file[-2:]
         ext3 = file[-3:]
         ext4 = file[-4:]
-        if ext3 == "exe" or ext3 == "msi" or ext3 == "zip" or ext3 == "mkv" or ext3 == "iso" or ext3 == "MP4" or ext2 == "js":
+        if ext3 == "exe" or ext3 == "msi" or ext3 == "zip" or ext3 == "mkv" or ext3 == "iso" or ext3 == "mp4" or ext2 == "js":
             delete_file(file)
         elif ext3 == "png" or ext3 == "jpg" or ext4 == "jfif":
             move_file(file, "pics")
@@ -39,6 +39,7 @@ for directory in dirlist:
             move_file(file, "words")
         elif ext4 == "pptx":
             move_file(file, "presentations")
-        
+        elif file == "Telegram Desktop":
+            shutil.rmtree(file)        
 
 log_file.close()
